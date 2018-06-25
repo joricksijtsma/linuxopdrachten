@@ -9,7 +9,7 @@ sudo apt-get install -y autoconf gcc libc6 make wget unzip apache2 php libapache
 cd /tmp
 wget -O nagioscore.tar.gz https://github.com/NagiosEnterprises/nagioscore/archive/nagios-4.3.4.tar.gz
 
-if[ $? !=0 ]
+if[ $? != 0 ]
 then
   echo "er is iets fout gegaan, error code: " $?
   exit
