@@ -1,4 +1,4 @@
-
+echo "execute as root, otherwise it will not work!"
 
 
 #prerequisites
@@ -16,10 +16,10 @@ then
 fi
 if [ $? == 0 ]
 then
-echo "het is gelukt"
+echo "tot nu toe werkt alles"
 fi
-
-
+# werkt tot hier.
+:'
 tar xzf nagioscore.tar.gz
 
 #compile the source
@@ -111,3 +111,4 @@ Define command{
 }
 
 #masterVM eindigt hier qua Nagios.
+'
