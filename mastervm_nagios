@@ -1,6 +1,3 @@
-echo "execute as root, otherwise it will not work!"
-
-
 #prerequisites
 sudo apt-get update
 sudo apt-get install -y autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.0 libgd2-xpm-dev
@@ -92,22 +89,9 @@ sudo make install-plugin
 #sudo nano /usr/local/nagios/etc/nagios.cfg
 #cfg_dir=/usr/local/nagios/etc/servers
 
-cd /usr/local/nagios/etc/nagios
-#sed -i '51s/.*/cfg_dir=/usr/local/nagios/etc/servers/' /usr/local/nagios/etc/nagios.cfg
-#sudo sed -i -e 's/#cfg_dir=/usr/local/nagios/etc/servers/cfg_dir=/usr/local/nagios/etc/servers/g' /usr/local/nagios/etc/nagios.cfg
 
-sed -i 's/"#cfg_dir=/usr/local/nagios/etc/servers"/"cfg_dir=/usr/local/nagios/etc/servers"/g' /usr/local/nagios/etc/nagios.cfg
+sudo sed -i -e 's+#cfg_dir=/usr/local/nagios/etc/servers+cfg_dir=/usr/local/nagios/etc/servers+g' /usr/local/nagios/etc/nagios.cfg
 
-#sudo nano /dir/nagios.conf
-
-sudo nano /usr/local/nagios/etc/nagios.cfg
-
-:'
-
-#uncomment the above line with the comment in front of it
-
-#save the config file and exit
-ctrl+o , y , ctrl+q
 
 #create the directory where we will store the config file for each monitored server
 sudo mkdir /usr/local/nagios/etc/servers
@@ -123,4 +107,3 @@ Define command{
 }
 
 #masterVM eindigt hier qua Nagios.
-'
