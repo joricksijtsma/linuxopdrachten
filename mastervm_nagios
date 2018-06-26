@@ -97,13 +97,17 @@ sudo sed -i -e 's+#cfg_dir=/usr/local/nagios/etc/servers+cfg_dir=/usr/local/nagi
 sudo mkdir /usr/local/nagios/etc/servers
 
 #make/open the commands.cfg file and put the following command in.
-sudo nano /usr/local/nagios/etc/object/commands.cfg
+cd /usr/local/nagios/etc/object/
+
+#commands.cfg
+touch commands.cfg
 
 #dit invoegen(is een leeg bestand):
 
+echo"
 Define command{
  command_name check_nrpe
  command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
 }
-
+" > commands.cfg
 #masterVM eindigt hier qua Nagios.
