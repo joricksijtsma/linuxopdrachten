@@ -92,7 +92,7 @@ sudo make install-plugin
 #sudo nano /usr/local/nagios/etc/nagios.cfg
 #cfg_dir=/usr/local/nagios/etc/servers
 
-sed -i '51s/.*/replacement-line/' nagios.conf
+sed -i '51s/.*/cfg_dir=/usr/local/nagios/etc/servers/' nagios.conf
 
 #sudo nano /dir/nagios.conf
 
