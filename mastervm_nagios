@@ -96,18 +96,14 @@ sudo sed -i -e 's%#cfg_dir=/usr/local/nagios/etc/servers%cfg_dir=/usr/local/nagi
 #create the directory where we will store the config file for each monitored server
 sudo mkdir /usr/local/nagios/etc/servers
 
-#make/open the commands.cfg file and put the following command in.
-cd /usr/local/nagios/etc/object/
-
 #commands.cfg
-touch commands.cfg
+
 
 #dit invoegen(is een leeg bestand):
 
-echo"
-Define command{
- command_name check_nrpe
- command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
-}
-" > commands.cfg
+echo 'Define command{' >> /usr/local/nagios/etc/object/commands.cfg
+echo '  command_name check_nrpe' >> /usr/local/nagios/etc/object/commands.cfg
+echo '  command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$' >> /usr/local/nagios/etc/object/commands.cfg
+echo '}' >> /usr/local/nagios/etc/object/commands.cfg
+
 #masterVM eindigt hier qua Nagios.
