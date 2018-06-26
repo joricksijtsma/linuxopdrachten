@@ -2,13 +2,12 @@
 
 
 
-#download bootstrap installation files in the linuxopdrachten directory
+#download bootstrap installation files in the div directory
 
-cd linuxopdrachten
 sudo wget -O bootstrap-salt.sh https://bootstrap.saltstack.com
 
 #install salt as master and minion on this machine
-sudo sh linuxopdrachten/bootstrap-salt.sh -M -A 127.0.0.1
+sudo sh div/bootstrap-salt.sh -M -A 127.0.0.1
 
 
 echo "klaar!"
