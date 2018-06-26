@@ -94,7 +94,7 @@ sudo make install-plugin
 
 #cd /usr/local/nagios/etc/nagios
 #sed -i '51s/.*/cfg_dir=/usr/local/nagios/etc/servers/' /usr/local/nagios/etc/nagios.cfg
-sed -i -e 's/#cfg_dir=/usr/local/nagios/etc/servers/cfg_dir=/usr/local/nagios/etc/servers/g' /usr/local/nagios/etc/nagios.cfg
+sudo sed -i -e 's/#cfg_dir=/usr/local/nagios/etc/servers/cfg_dir=/usr/local/nagios/etc/servers/g' /usr/local/nagios/etc/nagios.cfg
 
 #sudo nano /dir/nagios.conf
 
