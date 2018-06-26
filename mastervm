@@ -19,7 +19,7 @@ then
 echo "tot nu toe werkt alles"
 fi
 # werkt tot hier.
-:'
+
 tar xzf nagioscore.tar.gz
 
 #compile the source
@@ -89,8 +89,15 @@ sudo make check_nrpe
 sudo make install-plugin
 
 #open nagios config file and change the following line
-sudo nano /usr/local/nagios/etc/nagios.cfg
+#sudo nano /usr/local/nagios/etc/nagios.cfg
 #cfg_dir=/usr/local/nagios/etc/servers
+
+cat /usr/local/nagios/etc/nagios.cf | sed -e "s/#cfg_dir=/usr/local/nagios/etc/servers/cfg_dir=/usr/local/nagios/etc/servers/" > /dir/nagios.conf
+mv /dir/nagios.conf /usr/local/nagios/etc/servers
+
+sudo nano /usr/local/nagios/etc/nagios.cfg
+
+:'
 
 #uncomment the above line with the comment in front of it
 
