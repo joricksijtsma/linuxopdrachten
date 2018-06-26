@@ -1,0 +1,12 @@
+#this is the saltstack installation script for the masterVM
+
+
+
+#download bootstrap installation files in the linuxopdrachten directory
+sudo wget -O linuxopdrachten/bootstrap-salt.sh https://bootstrap.saltstack.com
+
+#install salt as master and minion on this machine
+sudo sh linuxopdrachten/bootstrap-salt.sh -M -A 127.0.0.1
+
+
+echo "klaar!"
