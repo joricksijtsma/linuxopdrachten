@@ -2,12 +2,12 @@
 
 #prerequisites
 sudo apt-get update
-sudo apt-get install -y autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.0 libgd2-xpm-dev
+sudo apt-get install -y autoconf gcc libc6 make wget unzip apache2php libapache2-mod-php7.0 libgd2-xpm-dev
+
 
 #download and extract files
 cd /tmp
-curl -O nagioscore.tar.gz https://github.com/NagiosEnterprises/nagioscore/archive/nagios-4.3.4.tar.gz
-
+wget -O nagioscore.tar.gz https://github.com/NagiosEnterprises/nagioscore/archive/nagios-4.3.4.tar.gz
 tar xzf nagioscore.tar.gz
 
 #compile the source
@@ -24,7 +24,8 @@ sudo make install
 
 #installs nagios and that it starts at boot
 sudo make install-init
-sudo update-rc.d nagios defaults
+update-rc.d nagios defaults
+
 
 #configures the commandline
 sudo make install-commandmode
@@ -47,12 +48,13 @@ sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin nagiosnagios
 sudo systemctl restart apache2
 sudo systemctl start nagios
 
+
 #prerequisites for the nagios plugins
-sudo apt-get install -y autoconf gcc libc6 libmcrypt-dev makelibssl-dev wget bc gawk dc build-essential snmp libnet-snmp-perl gettext
+sudo apt-get install -y autoconf gcc libc6 libmcrypt-dev make libssl-dev wget bc gawk dc build-essential snmp libnet-snmp-perl gettext
 
 #download the source and extract it
 cd /tmp
-curl --no-check-certificate -O /tmp/nagios-plugins.tar.gz https://github.com/nagios-plugins/nagios-plugins/archive/release-2.2.1.tar.gz
+wget --no-check-certificate -O nagios-plugins.tar.gz https://github.com/nagios-plugins/nagios-plugins/archive/release2.2.1.tar.gz
 tar zxf nagios-plugins.tar.gz
 
 #compile and install nagios plugins
@@ -65,18 +67,18 @@ sudo make install
 #restart nagios
 sudo systemctl restart nagios
 
+sleep 10
+
 #NRPE installation, download source and extract it
 cd /tmp
-curl https://github.com/NagiosEnterprises/nrpe/releases/download/nrpe-3.2.1/nrpe-3.2.1.tar.gz
-sudo tar zxf nrpe-3.2.1.tar.gz
+wget https://github.com/NagiosEnterprises/nrpe/releases/download/nrpe-3.2.1/nrpe-3.2.1.tar.gz
+tar zxf nrpe-3.2.1.tar.gz
 
 #compile and install NRPE
 cd /tmp/nrpe-*
-sudo ./configure --disable-ssl
+sudo ./configure
 sudo make check_nrpe
 sudo make install-plugin
-
-
 
 
 
