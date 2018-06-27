@@ -1,4 +1,14 @@
 #!/bin/bash
+
+echo -e "Please insert the nagios Master IP 10.0.0.18"
+read -p 'Nagios Master IP: ' ip
+
+echo -e "Please insert the nagios minion IP 10.0.0.16"
+read -p 'Nagios Master IP: ' ipslave
+
+
+
+
 sudo adduser nagios
 
 sudo apt-get update
@@ -25,3 +35,11 @@ make all
 sudo make install
 sudo make install-config
 sudo make install-init
+
+
+#here we change the allowed_hosts to the masterVM's IP adress.
+sudo sed -i -e "s+127.0.0.1,::1,your_nagios_server_private_ip+127.0.0.1,::1,$ip+g" /usr/local/nagios/etc/nrpe.cfg
+sudo nano /usr/local/nagios/etc/nrpe.cfg
+
+#change the folowing lines to the masterVM's IP adress and the disk we want to monitor(sda1 in dit geval)
+sudo nano /usr/local/nagios/etc/nrpe.cfg
