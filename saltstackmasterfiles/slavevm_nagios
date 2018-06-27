@@ -25,4 +25,3 @@ make all
 sudo make install
 sudo make install-config
 sudo make install-init
-© 2018 GitHub, Inc.
