@@ -1,5 +1,6 @@
 #this will be the installation script for the slavevms
 
+#make the scripts executable otherwise not worky worky
 
 #prerequisites
 sudo apt-get install -y autoconf gcc libc6 libmcrypt-dev makelibssl-dev wget bc gawk dc build-essential snmp libnet-snmp-perl gettext
