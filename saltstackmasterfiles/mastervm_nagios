@@ -1,3 +1,5 @@
+#! /bin/bash
+
 #prerequisites
 sudo apt-get update
 sudo apt-get install -y autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.0 libgd2-xpm-dev
@@ -66,17 +68,13 @@ sudo systemctl restart nagios
 #NRPE installation, download source and extract it
 cd /tmp
 wget https://github.com/NagiosEnterprises/nrpe/releases/download/nrpe-3.2.1/nrpe-3.2.1.tar.gz
-tar zxf nrpe-3.2.1.tar.gz
+sudo tar zxf nrpe-3.2.1.tar.gz
 
 #compile and install NRPE
 cd /tmp/nrpe-*
-sudo ./configure
+sudo ./configure --disable-ssl
 sudo make check_nrpe
 sudo make install-plugin
-
-#open nagios config file and change the following line
-#sudo nano /usr/local/nagios/etc/nagios.cfg
-#cfg_dir=/usr/local/nagios/etc/servers
 
 #added different escape characters
 sudo sed -i -e 's%#cfg_dir=/usr/local/nagios/etc/servers%cfg_dir=/usr/local/nagios/etc/servers%g' /usr/local/nagios/etc/nagios.cfg
