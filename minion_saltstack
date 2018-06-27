@@ -1,0 +1,12 @@
+#This is the installation file for saltstack on a minion.
+
+sudo wget -O bootstrap-salt.sh https://bootstrap.saltstack.com
+
+
+echo -e "Please insert the Saltstack DNS name."
+read -p 'Saltstack Master name: ' name
+
+echo "#installation of saltstack using the DNS name of the master (default = salt, "
+echo " but can be different depending on the name of the salt-master name)"
+
+sudo sh bootstrap-salt.sh -A $name
