@@ -2,6 +2,14 @@
 
 #make the scripts executable otherwise not worky worky
 
+echo -e "Please insert the nagios Master."
+read -p 'Nagios Master IP: ' ip
+
+echo -e "Please insert the nagios minion."
+read -p 'Nagios Master IP: ' ipslave
+
+
+
 #prerequisites
 sudo apt-get install -y autoconf gcc libc6 libmcrypt-dev makelibssl-dev wget bc gawk dc build-essential snmp libnet-snmp-perl gettext
 
@@ -35,11 +43,9 @@ sudo make install-config
 sudo make install-init
 
 #here we change the allowed_hosts to the masterVM's IP adress.
+sudo sed -i -e "s++127.0.0.1,::1,your_nagios_server_private_ip+127.0.0.1,::1,$ip+g" /usr/local/nagios/etc/nrpe.cfg
 sudo nano /usr/local/nagios/etc/nrpe.cfg
-allowed_hosts=127.0.0.1,::1,your_nagios_server_private_ip
 
-#save the file and exit it
-ctrl+o , y , ctrl+q
 
 #restart nrpe
 sudo systemctl start nrpe
@@ -52,11 +58,9 @@ sudo systemctl start nrpe
 #change the folowing lines to the masterVM's IP adress and the disk we want to monitor(sda1 in dit geval)
 sudo nano /usr/local/nagios/etc/nrpe.cfg
 
-server_address=monitored_server_private_ip
+server_address=$ipslave
 
 command[check_vda1]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -p /dev/sda1
 
-#save and close
-ctrl+o , y , ctrl+q
 #restart nrpe
 sudo systemctl restart nrpe

@@ -20,5 +20,3 @@ echo "Making all files in this directory executable"
 cd /srv/salt
 sudo chmod 755 mastervm_nagios
 sudo chmod 755 slavevm_nagios
-#sudo chmod 755 mastervm_nagios
-#sudo chmod 755 mastervm_nagios
