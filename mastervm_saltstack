@@ -9,6 +9,9 @@ sudo wget -O bootstrap-salt.sh https://bootstrap.saltstack.com
 #install salt as master and minion on this machine
 sudo sh bootstrap-salt.sh -M -A 127.0.0.1
 
+
+
 echo "Making directory and move all script files to the salt directory"
+
 sudo mkdir /srv/salt
 sudo mv saltstackmasterfiles/* /srv/salt
