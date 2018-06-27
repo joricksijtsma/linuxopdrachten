@@ -11,7 +11,7 @@ read -p 'Nagios Master IP: ' ipslave
 
 
 #prerequisites
-sudo apt-get install -y autoconf gcc libc6 libmcrypt-dev makelibssl-dev wget bc gawk dc build-essential snmp libnet-snmp-perl gettext
+sudo apt-get install -y -q autoconf gcc libc6 libmcrypt-dev make libssl-dev wget bc gawk dc build-essential snmp libnet-snmp-perl gettext
 
 #download the source and extract
 cd /tmp
@@ -28,6 +28,7 @@ sudo make install
 #nagios user creation
 sudo useradd nagios
 
+
 #NRPE installation
 #download source and extraction
 cd /tmp
@@ -37,10 +38,8 @@ tar zxf nrpe-3.2.1.tar.gz
 #compile and install nrpe
 cd /tmp/nrpe-*
 sudo ./configure
-sudo make all
-sudo make install
-sudo make install-config
-sudo make install-init
+sudo make check_nrpe
+sudo make install-plugin
 
 #here we change the allowed_hosts to the masterVM's IP adress.
 sudo sed -i -e "s++127.0.0.1,::1,your_nagios_server_private_ip+127.0.0.1,::1,$ip+g" /usr/local/nagios/etc/nrpe.cfg
