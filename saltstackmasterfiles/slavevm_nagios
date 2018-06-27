@@ -66,7 +66,7 @@ command[check_vda1]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -p /dev/sda
 #restart nrpe
 sudo systemctl restart nrpe
 '
-: #!/bin/bash
+#!/bin/bash
 
 mstr_ip=$1
 minion_ip=$2
