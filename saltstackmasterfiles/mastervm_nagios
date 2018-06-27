@@ -41,8 +41,8 @@ sudo a2enmod rewrite
 sudo a2enmod cgi
 
 #creates the nagios admin account. the password is directly after nagiosadmin, since on the next line it will ask for a password.
-sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin nagiosnagios
-# hier moet het wachtwoord worden ingevuld!
+sudo htpasswd -c -b /usr/local/nagios/etc/htpasswd.users nagiosadmin nagiosnagios
+# -b toegevoegd om van de commandline te pakken.
 
 #start apache and nagios
 sudo systemctl restart apache2
@@ -50,11 +50,11 @@ sudo systemctl start nagios
 
 
 #prerequisites for the nagios plugins
-sudo apt-get install -y autoconf gcc libc6 libmcrypt-dev make libssl-dev wget bc gawk dc build-essential snmp libnet-snmp-perl gettext
+sudo apt-get install -y -q autoconf gcc libc6 libmcrypt-dev make libssl-dev wget bc gawk dc build-essential snmp libnet-snmp-perl gettext
 
 #download the source and extract it
 cd /tmp
-wget --no-check-certificate -O nagios-plugins.tar.gz https://github.com/nagios-plugins/nagios-plugins/archive/release2.2.1.tar.gz
+wget --no-check-certificate -O /tmp/nagios-plugins.tar.gz https://github.com/nagios-plugins/nagios-plugins/archive/release-2.2.1.tar.gz
 tar zxf nagios-plugins.tar.gz
 
 #compile and install nagios plugins
@@ -66,8 +66,6 @@ sudo make install
 
 #restart nagios
 sudo systemctl restart nagios
-
-sleep 10
 
 #NRPE installation, download source and extract it
 cd /tmp
@@ -84,8 +82,7 @@ sudo make install-plugin
 
 
 #added different escape characters
-sudo sed -i -e 's%#cfg_dir=/usr/local/nagios/etc/servers%cfg_dir=/usr/local/nagios/etc/servers%g' /usr/local/nagios/etc/nagios.cfg
-
+sudo sed -i -e 's+%cfg_dir=/usr/local/nagios/etc/servers%cfg_dir=/usr/local/nagios/etc/servers%g' /usr/local/nagios/etc/nagios.cfg
 
 #create the directory where we will store the config file for each monitored server
 sudo mkdir /usr/local/nagios/etc/servers
@@ -95,9 +92,9 @@ sudo mkdir /usr/local/nagios/etc/servers
 
 #dit invoegen(is een leeg bestand):
 
-#echo 'define command{' >> /usr/local/nagios/etc/objects/commands.cfg
-#echo '  command_name check_nrpe' >> /usr/local/nagios/etc/objects/commands.cfg
-#echo '  command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$' >> /usr/local/nagios/etc/objects/commands.cfg
-#echo '}' >> /usr/local/nagios/etc/objects/commands.cfg
+echo 'define command{' >> /usr/local/nagios/etc/objects/commands.cfg
+echo '  command_name check_nrpe' >> /usr/local/nagios/etc/objects/commands.cfg
+echo '  command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$' >> /usr/local/nagios/etc/objects/commands.cfg
+echo '}' >> /usr/local/nagios/etc/objects/commands.cfg
 
 #masterVM eindigt hier qua Nagios.
