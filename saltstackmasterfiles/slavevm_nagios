@@ -15,7 +15,7 @@ sudo apt-get install -y autoconf gcc libc6 libmcrypt-dev makelibssl-dev wget bc 
 
 #download the source and extract
 cd /tmp
-wget --no-check-certificate -O /tmp/nagios-plugins.tar.gz https://github.com/nagios-plugins/nagios-plugins/archive/release-2.2.1.tar.gz
+curl -L -O http://nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz
 tar zxf nagios-plugins.tar.gz
 
 #compile & install nagios plugins
