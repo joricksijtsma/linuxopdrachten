@@ -15,3 +15,10 @@ echo "Making directory and move all script files to the salt directory"
 
 sudo mkdir /srv/salt
 sudo mv saltstackmasterfiles/* /srv/salt
+
+echo "Making all files in this directory executable"
+cd /srv/salt
+sudo chmod 755 mastervm_nagios
+sudo chmod 755 slavevm_nagios
+#sudo chmod 755 mastervm_nagios
+#sudo chmod 755 mastervm_nagios
