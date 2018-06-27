@@ -9,4 +9,4 @@ $name = salt
 #read -p 'Saltstack Master name: ' name
 
 #installation of saltstack using the DNS name of the master
-sudo sh install_salt.sh -A salt
+sudo sh bootstrap-salt.sh -A salt
