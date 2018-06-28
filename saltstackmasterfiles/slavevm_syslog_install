@@ -16,8 +16,8 @@ echo -e "Please insert the monitoring host ip"
 read -p 'Saltstack Master IP: ' hostip
 
 echo "@version: 3.5
-@include "scl.conf"
-@include "`scl-root`/system/tty10.conf"
+@include \"scl.conf\"
+@include \"`scl-root`/system/tty10.conf\"
 
 
 ###################
