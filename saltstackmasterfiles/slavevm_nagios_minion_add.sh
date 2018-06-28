@@ -10,7 +10,7 @@ read -p 'Nagios Minion HostName: ' minion_name
 sudo mkdir /usr/local/nagios/etc/servers/
 sudo touch /usr/local/nagios/etc/servers/"$minion_name".cfg
 
-
+echo"
 define host {
     use linux-server
     host_name $minion_name
@@ -34,6 +34,4 @@ define service {
     host_name $minion_name
     service_description /dev/sda1 free space
     check_command check_nrpe!check_sda1
-}
-
-# /usr/local/nagios/etc/servers/$minion_name.cfg
+}" >> /usr/local/nagios/etc/servers/$minion_name.cfg
