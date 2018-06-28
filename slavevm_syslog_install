@@ -4,6 +4,23 @@ sudo apt-get install syslog-ng
 
 sudo sed -i -e 's+%cfg_dir=/usr/local/nagios/etc/servers%cfg_dir=/usr/local/nagios/etc/servers%g' /etc/syslog-ng/syslog-ng.conf
 
+###################
+# Sources
+###################
+source s_apache {
+ file(“/var/log/apache2/access.log” flags(no-parse));
+ file(“/var/log/apache2/error.log” flags(no-parse));
+};
+…
+###################
+# Destinations
+###################
+destination d_network { tcp(“HARD CODEN”) port(601)); };
+…
+##################
+# Log paths
+##################
+log { source(s_apache); destination(d_network); };
 
 
 

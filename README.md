@@ -1,9 +1,9 @@
 # linuxopdrachten
 
-# ALLE HARDCODED IP ADRESSEN AANPASSEN (
+# ALLE HARDCODED IP ADRESSEN AANPASSEN:
 
 # slavevm_nagios    regel 39 & 43
-# slavevm_nagios_minion_add )
+# slavevm_syslog_install regel 18
 
 sudo git clone https://github.com/joricksijtsma/linuxopdrachten && cd linuxopdrachten && sudo chmod 777 mastervm_saltstack minion_saltstack && cd saltstackmasterfiles && sudo chmod 777 mastervm_nagios slavevm_nagios slavevm_nagios_minion_add.sh
 
