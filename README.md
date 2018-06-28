@@ -14,7 +14,7 @@ cd .. && sudo ./mastervm_saltstack
 
 Stap 2: op minionVM
 cd .. && sudo ./minion_saltstack
-cd /srv/salt
+cd /srv/salt && ls
 
 Stap 3: Op masterVM, accept all keys
 
