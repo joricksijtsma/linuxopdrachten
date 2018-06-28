@@ -28,3 +28,4 @@ sudo chmod 755 slavevm_nagios
 sudo chmod 755 slavevm_nagios_minion_add.sh
 sudo chmod 755 slavevm_syslog_install
 sudo chmod 755 mastervm_syslog_install
+sudo chmod 755 docker_install
