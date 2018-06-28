@@ -27,7 +27,7 @@ source s_apache {
 ###################
 # Destinations
 ###################
-destination d_network { tcp('hostip') port(601)); };
+destination d_network { tcp("hostip") port(601)); };
 …
 ##################
 # Log paths

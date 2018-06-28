@@ -38,3 +38,6 @@ Stap 6: add minion to mastervm_nagios website
 cd /srv/salt
 sudo chmod 777 slavevm_nagios_minion_add.sh
 sudo ./slavevm_nagios_minion_add.sh
+
+
+sudo chmod 777 slavevm_syslog_install && sudo ./slavevm_syslog_install
