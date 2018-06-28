@@ -33,9 +33,6 @@ destination d_network { tcp('$hostip') port(601)); };
 # Log paths
 ##################
 log { source(s_apache); destination(d_network); };
-'
-
-
-
+' >> /etc/syslog-ng/syslog-ng.conf
 
 sudo systemctl restart syslog-ng
