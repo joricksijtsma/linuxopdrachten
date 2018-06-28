@@ -1,12 +1,11 @@
 mastervm_saltstack
 minion_saltstack
 
-executen van dingen via saltstack werkt niet.
+mastervm_nagios VIA SALTSTACK
+slavevm_nagios  VIA SALTSTACK
+slavevm_nagios_minion_add ???
 
-mastervm_nagios VIA SALTSTACK +/- 15 minuten
-slavevm_nagios ??? VIA SALTSTACK +/- 8 minuten
+mastervm_syslog VIA SALTSTACK
+slavevm_syslog VIA SALTSTACK
 
-mastervm_syslog ???
-slavevm_syslog ???
-
-docker moet nog (???)
+docker moet nog VIA SALTSTACK
