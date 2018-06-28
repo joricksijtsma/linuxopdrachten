@@ -82,7 +82,7 @@ sudo make install-plugin
 
 
 #added different escape characters
-sudo sed -i -e "s+%cfg_dir=/usr/local/nagios/etc/servers%cfg_dir=/usr/local/nagios/etc/servers%g" /usr/local/nagios/etc/nagios.cfg
+sudo sed -i -e "s+#cfg_dir=/usr/local/nagios/etc/servers+cfg_dir=/usr/local/nagios/etc/servers+g" /usr/local/nagios/etc/nagios.cfg
 
 #create the directory where we will store the config file for each monitored server
 sudo mkdir /usr/local/nagios/etc/servers

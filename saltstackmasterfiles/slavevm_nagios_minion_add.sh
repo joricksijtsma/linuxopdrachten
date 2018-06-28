@@ -12,7 +12,7 @@ echo "
 define host {
 	use			linux-server
 	host_name		$minion_name
-  alias			$minion_name
+  alias			  $minion_name
 	address			$minion_ip
 	max_check_attempts	5
 	check_period		24x7
