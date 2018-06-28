@@ -92,10 +92,10 @@ sudo mkdir /usr/local/nagios/etc/servers
 
 #dit invoegen(is een leeg bestand):
 sudo touch /usr/local/nagios/etc/objects/commands.cfg
-echo "
+echo '
       define command{
-          command_name check_nrpe' >> /usr/local/nagios/etc/objects/commands.cfg
-          command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$' >> /usr/local/nagios/etc/objects/commands.cfg
-        }" >> /usr/local/nagios/etc/objects/commands.cfg
+          command_name check_nrpe
+          command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
+        }' >> /usr/local/nagios/etc/objects/commands.cfg
 
 #masterVM eindigt hier qua Nagios.
