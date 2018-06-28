@@ -19,7 +19,7 @@ echo "Making all files in this directory executable"
 echo "Making directory and move all script files to the salt directory"
 
 sudo mkdir /srv/salt
-sudo mv saltstackmasterfiles/* /srv/salt
+sudo cp saltstackmasterfiles/* /srv/salt
 
 echo "Making all files in this directory executable"
 cd /srv/salt
