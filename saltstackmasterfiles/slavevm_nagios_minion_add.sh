@@ -8,7 +8,7 @@ read -p 'Nagios Minion HostName: ' minion_name
 
 sudo mkdir /usr/local/nagios/etc/servers/
 sudo touch /usr/local/nagios/etc/servers/"$minion_name".cfg
-echo 'define host {
+echo "define host {
         use                          linux-server
         host_name                    "$minion_name"
         alias                        "$minion_name"
@@ -90,5 +90,5 @@ define service {
       notifications_enabled           1
       register                        1
 }
-' | sudo tee -a /usr/local/nagios/etc/servers/$minion_name.cfg
+" | sudo tee -a /usr/local/nagios/etc/servers/$minion_name.cfg
 sudo systemctl restart nagios
