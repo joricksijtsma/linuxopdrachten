@@ -15,12 +15,11 @@ sudo chmod 777 mastervm_nagios slavevm_nagios slavevm_nagios_minion_add.sh
 
 Stap 1: op masterVM
 cd ..
-Install mastervm_saltstack
 sudo ./mastervm_saltstack
 
 Stap 2: op minionVM
-
-Install minion_saltstack
+cd ..
+sudo ./minion_saltstack
 
 Stap 3: Op masterVM, accept all keys
 
@@ -29,7 +28,7 @@ sudo salt-key --accept-all
 
 Stap 4: alles installeren op de master(nagios, syslog, etc)
 
-sudo salt 'salt' state.apply -t 20000 mastervm_nagios
+sudo salt 'salt' state.apply -t 900 mastervm_nagios
 sudo salt 'salt' state.apply mastervm_syslog #moet nog gemaakt worden
 
 Stap 5: alles installeren op de minion(nagios, syslog, etc)
