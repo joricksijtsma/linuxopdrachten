@@ -23,9 +23,9 @@ echo '@version: 3.5
 ###################
 # Sources
 ###################
-source s_apache {
- file(“/var/log/apache2/access.log” flags(no-parse));
- file(“/var/log/apache2/error.log” flags(no-parse));
+source s_src {
+	system();
+	internal();
 };
 
 ###################
@@ -36,7 +36,9 @@ destination d_network { tcp("$hostip" port(601)); };
 ##################
 # Log paths
 ##################
-log { source(s_apache); destination(d_network); };
+
+log { source(s_src); destination(d_network); };
+
 ' >> /etc/syslog-ng/syslog-ng.conf
 
 sudo systemctl restart syslog-ng
