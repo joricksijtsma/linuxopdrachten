@@ -10,3 +10,8 @@ echo "#installation of saltstack using the DNS name of the master (default = sal
 echo " but can be different depending on the name of the salt-master name)"
 
 sudo sh bootstrap-salt.sh -A $name
+
+echo "Making directory and move all script files to the salt directory"
+echo "Making all files in this directory executable"
+
+# sudo mkdir /srv/salt && sudo mv saltstackmasterfiles/* /srv/salt && cd /srv/salt && sudo chmod 755 mastervm_nagios && sudo chmod 755 slavevm_nagios

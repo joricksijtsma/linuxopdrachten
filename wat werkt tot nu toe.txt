@@ -1,0 +1,12 @@
+mastervm_saltstack
+minion_saltstack
+
+executen van dingen via saltstack werkt niet.
+
+mastervm_nagios ???
+slavevm_nagios ???
+
+mastervm_syslog ???
+slavevm_syslog ???
+
+docker moet nog (???)

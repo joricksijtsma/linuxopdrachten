@@ -2,7 +2,7 @@
 
 #prerequisites
 sudo apt-get update
-sudo apt-get install -y autoconf gcc libc6 make wget unzip apache2php libapache2-mod-php7.0 libgd2-xpm-dev
+sudo apt-get install -y autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.0 libgd2-xpm-dev
 
 
 #download and extract files
@@ -91,7 +91,7 @@ sudo mkdir /usr/local/nagios/etc/servers
 
 
 #dit invoegen(is een leeg bestand):
-
+sudo touch /usr/local/nagios/etc/objects/commands.cfg
 echo 'define command{' >> /usr/local/nagios/etc/objects/commands.cfg
 echo '  command_name check_nrpe' >> /usr/local/nagios/etc/objects/commands.cfg
 echo '  command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$' >> /usr/local/nagios/etc/objects/commands.cfg
