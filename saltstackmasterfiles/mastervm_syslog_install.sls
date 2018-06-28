@@ -18,4 +18,4 @@ copy syslog-ng.conf:
 restart syslog-ng:
  cmd:
  - run
- - name: systemctl restart syslog-ng
+ - name: systemctl restart syslog-ng.service

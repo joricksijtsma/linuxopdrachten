@@ -24,7 +24,7 @@ sudo cp saltstackmasterfiles/* /srv/salt
 echo "Making all files in this directory executable"
 cd /srv/salt
 sudo chmod 777 mastervm_nagios
-sudo chmod 77 slavevm_nagios
+sudo chmod 777 slavevm_nagios
 sudo chmod 777 slavevm_nagios_minion_add.sh
 sudo chmod 777 slavevm_syslog_install
 sudo chmod 777 mastervm_syslog_install

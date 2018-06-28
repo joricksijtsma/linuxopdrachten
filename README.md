@@ -24,7 +24,7 @@ sudo salt-key --accept-all
 
 Stap 4: alles installeren op de master(nagios, syslog, docker)
 
-sudo salt 'salt' state.apply -t 900 mastervm_nagios
+sudo salt 'salt' state.apply -t 60 mastervm_nagios 
 sudo salt 'salt' state.apply -t 60 mastervm_syslog_install
 sudo salt 'salt' state.apply -t 60 docker_install
 
