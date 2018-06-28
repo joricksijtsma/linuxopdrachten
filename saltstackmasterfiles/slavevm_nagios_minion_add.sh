@@ -6,8 +6,6 @@ read -p 'Nagios Minion IP: ' minion_ip
 echo -e "Please insert the nagios minion hostname minion"
 read -p 'Nagios Minion HostName: ' minion_name
 
-read -p "What is the monitored server hostname?" hostname
-read -p "What is the monitored server private ip?" ipaddress
 sudo mkdir /usr/local/nagios/etc/servers/
 sudo touch /usr/local/nagios/etc/servers/"$minion_name".cfg
 echo "define host {
