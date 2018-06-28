@@ -1,4 +1,4 @@
 run mastervm_nagios:
   cmd:
     - run
-    - name: /srv/salt/mastervm_nagios
+    - name: /home/jorick/srv/salt/mastervm_nagios
