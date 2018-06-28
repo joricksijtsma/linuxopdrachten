@@ -27,6 +27,8 @@ Stap 4: alles installeren op de master(nagios, syslog, etc)
 sudo salt 'salt' state.apply -t 900 mastervm_nagios
 sudo salt 'salt' state.apply -t 60 mastervm_syslog_install
 
+# sudo apt-get purge --auto-remove syslog-ng  | om alles te verwijderen
+
 Stap 5: alles installeren op de minion(nagios, syslog, etc)
 
 sudo salt 'minion' state.apply -t 60 slavevm_nagios
