@@ -4,8 +4,6 @@
 
 sudo apt-get install syslog-ng
 
-sudo sed -i -e 's+%cfg_dir=/usr/local/nagios/etc/servers%cfg_dir=/usr/local/nagios/etc/servers%g' /etc/syslog-ng/syslog-ng.conf
-
 #make empty file by deleting it
 cd /etc/syslog-ng/
 sudo rm /etc/syslog-ng/syslog-ng.conf
