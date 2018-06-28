@@ -1,0 +1,12 @@
+#installation file for mastervm_syslog_install
+
+sudo apt-get install syslog-ng
+
+#make empty file by deleting it
+cd /etc/syslog-ng/
+sudo rm /etc/syslog-ng/syslog-ng.conf
+#make new empty file
+sudo touch /etc/syslog-ng/syslog-ng.conf
+
+
+#config file aanpassen met het volgende:

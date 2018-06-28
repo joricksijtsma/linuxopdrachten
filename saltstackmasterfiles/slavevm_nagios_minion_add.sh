@@ -1,14 +1,14 @@
 #!/bin/bash
 
-echo -e "Please insert the nagios Minion IP 10.0.0.16"
-read -p 'Nagios Minion IP: ' ipslave
+echo -e "Please insert the nagios Minion IP 10.0.020"
+read -p 'Nagios Minion IP: ' minion_ip
 
 echo -e "Please insert the nagios minion hostname minion"
-read -p 'Nagios Minion HostName: ' nameslave
+read -p 'Nagios Minion HostName: ' minion_name
 
 #make a new template with the minionname as name of the .cfg file.
 sudo mkdir /usr/local/nagios/etc/servers/
-sudo touch /usr/local/nagios/etc/servers/"$slavename".cfg
+sudo touch /usr/local/nagios/etc/servers/"$minion_name".cfg
 
 
 define host {
