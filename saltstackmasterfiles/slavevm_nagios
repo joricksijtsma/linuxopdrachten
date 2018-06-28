@@ -44,3 +44,5 @@ sudo sed -i -e "s/#server_address=127.0.0.1/server_address=10.0.0.20/g" /usr/loc
 #Dit veranderd de gemonitorde disk. WERKT NIET
 #sudo sed -i -e "s+command[check_hda1]=/usr/local/nagios/libexec/check_disk -w 20% -c 10% -p /dev/hda1+command[check_sda1]=/usr/local/nagios/libexec/check_disk -w 20% -c 10% -p /dev/sda1+g" /usr/local/nagios/etc/nrpe.cfg
 sudo systemctl start nrpe.service
+sudo ufw allow 5666
+sudo ufw reload
