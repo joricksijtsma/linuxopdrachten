@@ -25,7 +25,7 @@ sudo salt-key --accept-all
 Stap 4: alles installeren op de master(nagios, syslog, etc)
 
 sudo salt 'salt' state.apply -t 900 mastervm_nagios
-sudo salt 'salt' state.apply mastervm_syslog_install #moet nog gemaakt worden
+sudo salt 'salt' state.apply -t 60 mastervm_syslog_install
 
 Stap 5: alles installeren op de minion(nagios, syslog, etc)
 
