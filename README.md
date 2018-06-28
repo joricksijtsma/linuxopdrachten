@@ -24,17 +24,17 @@ sudo salt-key --accept-all
 
 Stap 4: alles installeren op de master(nagios, syslog, docker)
 
-sudo salt 'salt' state.apply -t 60 mastervm_nagios 
-sudo salt 'salt' state.apply -t 60 mastervm_syslog_install
-sudo salt 'salt' state.apply -t 60 docker_install
+sudo salt 'salt*' state.apply -t 60 mastervm_nagios
+sudo salt 'salt*' state.apply -t 60 mastervm_syslog_install
+sudo salt 'salt*' state.apply -t 60 docker_install
 
 # sudo apt-get purge --auto-remove syslog-ng  |
 
 Stap 5: alles installeren op de minion(nagios, syslog, etc)
 
-sudo salt 'minion' state.apply -t 60 slavevm_nagios
-sudo salt 'minion' state.apply -t 60 slavevm_syslog_install
-sudo salt 'minion' state.apply -t 60 docker_install
+sudo salt 'minion*' state.apply -t 60 slavevm_nagios
+sudo salt 'minion*' state.apply -t 60 slavevm_syslog_install
+sudo salt 'minion*' state.apply -t 60 docker_install
 
 Stap 6: add minion to mastervm_nagios website
 cd /srv/salt
