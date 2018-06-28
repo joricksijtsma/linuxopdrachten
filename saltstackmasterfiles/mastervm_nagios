@@ -45,8 +45,8 @@ sudo htpasswd -c -b /usr/local/nagios/etc/htpasswd.users nagiosadmin nagiosnagio
 # -b toegevoegd om van de commandline te pakken.
 
 #start apache and nagios
-sudo systemctl restart apache2
-sudo systemctl start nagios
+sudo systemctl restart apache2.service
+sudo systemctl start nagios.service
 
 
 #prerequisites for the nagios plugins
@@ -65,7 +65,7 @@ sudo make
 sudo make install
 
 #restart nagios
-sudo systemctl restart nagios
+sudo systemctl restart nagios.service
 
 #NRPE installation, download source and extract it
 cd /tmp
@@ -92,9 +92,10 @@ sudo mkdir /usr/local/nagios/etc/servers
 
 #dit invoegen(is een leeg bestand):
 sudo touch /usr/local/nagios/etc/objects/commands.cfg
-echo 'define command{' >> /usr/local/nagios/etc/objects/commands.cfg
-echo '  command_name check_nrpe' >> /usr/local/nagios/etc/objects/commands.cfg
-echo '  command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$' >> /usr/local/nagios/etc/objects/commands.cfg
-echo '}' >> /usr/local/nagios/etc/objects/commands.cfg
+echo "
+      define command{
+          command_name check_nrpe' >> /usr/local/nagios/etc/objects/commands.cfg
+          command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$' >> /usr/local/nagios/etc/objects/commands.cfg
+        }" >> /usr/local/nagios/etc/objects/commands.cfg
 
 #masterVM eindigt hier qua Nagios.
