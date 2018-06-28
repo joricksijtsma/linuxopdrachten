@@ -36,11 +36,11 @@ sudo make install-init
 
 
 #here we change the allowed_hosts to the masterVM's IP adress. # MASTER IP HIER
-sudo sed -i -e "s+127.0.0.1,::1+127.0.0.1,::1,10.0.0.21+g" /usr/local/nagios/etc/nrpe.cfg
+sudo sed -i -e "s+127.0.0.1,::1+127.0.0.1,::1,10.0.0.23+g" /usr/local/nagios/etc/nrpe.cfg
 sudo nano /usr/local/nagios/etc/nrpe.cfg
 
 #change the folowing lines to the masterVM's IP adress and the disk we want to monitor(sda1 in dit geval) #MINION IP HIER
-sudo sed -i -e "s/#server_address=127.0.0.1/server_address=10.0.0.22/g" /usr/local/nagios/etc/nrpe.cfg
+sudo sed -i -e "s/#server_address=127.0.0.1/server_address=10.0.0.24/g" /usr/local/nagios/etc/nrpe.cfg
 #Dit veranderd de gemonitorde disk. WERKT NIET
 #sudo sed -i -e "s+command[check_hda1]=/usr/local/nagios/libexec/check_disk -w 20% -c 10% -p /dev/hda1+command[check_sda1]=/usr/local/nagios/libexec/check_disk -w 20% -c 10% -p /dev/sda1+g" /usr/local/nagios/etc/nrpe.cfg
 sudo systemctl start nrpe.service

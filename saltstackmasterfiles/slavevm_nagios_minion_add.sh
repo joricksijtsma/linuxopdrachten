@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "Please insert the nagios Minion IP 10.0.020"
+echo -e "Please insert the nagios Minion IP 10.0.022"
 read -p 'Nagios Minion IP: ' minion_ip
 
 echo -e "Please insert the nagios minion hostname minion"
