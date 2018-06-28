@@ -32,7 +32,7 @@ sudo salt 'salt' state.apply -t 60 mastervm_syslog_install
 Stap 5: alles installeren op de minion(nagios, syslog, etc)
 
 sudo salt 'minion' state.apply -t 60 slavevm_nagios
-sudo salt 'minion' state.apply slavevm_syslog_install #moet nog gemaakt worden
+sudo salt 'minion' state.apply -t 60 slavevm_syslog_install
 
 Stap 6: add minion to mastervm_nagios website
 cd /srv/salt

@@ -12,10 +12,14 @@ sudo rm /etc/syslog-ng/syslog-ng.conf
 #make new empty file
 sudo touch /etc/syslog-ng/syslog-ng.conf
 
-#echo -e "Please insert the monitoring host ip"
-#read -p 'Saltstack Master name: ' hostip
+echo -e "Please insert the monitoring host ip"
+read -p 'Saltstack Master name: ' hostip
 
-echo '
+echo '@version: 3.5
+@include "scl.conf"
+@include "`scl-root`/system/tty10.conf"
+
+
 ###################
 # Sources
 ###################
@@ -23,12 +27,12 @@ source s_apache {
  file(“/var/log/apache2/access.log” flags(no-parse));
  file(“/var/log/apache2/error.log” flags(no-parse));
 };
-…
+
 ###################
 # Destinations
 ###################
-destination d_network { tcp("hostip") port(601)); };
-…
+destination d_network { tcp("$hostip" port(601)); };
+
 ##################
 # Log paths
 ##################
