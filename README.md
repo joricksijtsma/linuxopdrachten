@@ -5,8 +5,7 @@
 # slavevm_nagios    regel 39 & 43
 # slavevm_nagios_minion_add )
 
-
-sudo git clone https://github.com/joricksijtsma/linuxopdrachten && cd linuxopdrachten && sudo chmod 777 mastervm_saltstack minion_saltstack && cd saltstackmasterfiles && sudo chmod 777 mastervm_nagios slavevm_nagios slavevm_nagios_minion_add.sh
+sudo git clone https://github.com/joricksijtsma/linuxopdrachten && cd linuxopdrachten && sudo chmod 777 mastervm_saltstack minion_saltstack && cd saltstackmasterfiles && sudo chmod 777 mastervm_nagios slavevm_nagios
 
 sudo rm -rf linuxopdrachten
 
@@ -35,4 +34,4 @@ sudo salt 'minion' state.apply slavevm_syslog #moet nog gemaakt worden
 
 Stap 6: add minion to mastervm_nagios website
 
-sudo salt slavevm_nagios_minion_add.sh
+slavevm_nagios_minion_add.sh
