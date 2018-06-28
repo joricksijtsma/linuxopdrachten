@@ -11,9 +11,9 @@ sudo touch /usr/local/nagios/etc/servers/"$minion_name".cfg
 echo "
 define host {
 	use			linux-server
-	host_name		HOST_NAME
-	alias			HOST_NAME
-	address			HOST_IP
+	host_name		$minion_name
+  alias			$minion_name
+	address			$minion_ip
 	max_check_attempts	5
 	check_period		24x7
 	notification_interval	30
@@ -22,16 +22,16 @@ define host {
 
 define service {
 	use			generic-service
-	host_name		HOST_NAME
+	host_name		$minion_name
 	service_description	CPU load
 	check_command		check_nrpe!check_load
 }
 
-define service {
-	use			generic-service
-	host_name		HOST_NAME
-	service_description	/dev/hda1 free space
-	check_command		check_nrpe!check_hda1
-}
+#define service {
+#	use			generic-service
+#	host_name		$minion_name
+#	service_description	/dev/hda1 free space
+#	check_command		check_nrpe!check_hda1
+#}
 " | sudo tee -a /usr/local/nagios/etc/servers/$minion_name.cfg
 sudo systemctl restart nagios
