@@ -12,8 +12,8 @@ sudo rm /etc/syslog-ng/syslog-ng.conf
 #make new empty file
 sudo touch /etc/syslog-ng/syslog-ng.conf
 
-echo -e "Please insert the monitoring host ip"
-read -p 'Saltstack Master name: ' hostip
+#echo -e "Please insert the monitoring host ip"
+#read -p 'Saltstack Master name: ' hostip
 
 echo '
 ###################
@@ -27,7 +27,7 @@ source s_apache {
 ###################
 # Destinations
 ###################
-destination d_network { tcp('$hostip') port(601)); };
+destination d_network { tcp('hostip') port(601)); };
 …
 ##################
 # Log paths
