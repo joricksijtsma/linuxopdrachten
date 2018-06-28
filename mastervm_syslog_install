@@ -11,7 +11,7 @@ sudo touch /etc/syslog-ng/syslog-ng.conf
 
 #config file aanpassen met het volgende:
 
-
+echo '
 @version: 3.5
 @include "scl.conf"
 @include "`scl-root`/system/tty10.conf"
@@ -35,6 +35,9 @@ source s_src {
        system();
        internal();
 };
+source s_network {
+ network(transport(tcp) port(601));
+};
 
 # If you wish to get logs from remote machine you should uncomment
 # this and comment the above source line.
@@ -55,6 +58,10 @@ destination d_mail { file("/var/log/mail.log"); };
 destination d_syslog { file("/var/log/syslog"); };
 destination d_user { file("/var/log/user.log"); };
 destination d_uucp { file("/var/log/uucp.log"); };
+
+destination d_apache_error { file(“var/log/$HOST/apache/error/$HOST-$YEAR-$MONTH-$DAY.log” create_dirs(yes)); };
+destination d_apache_access { file(“var/log/$HOST/apache/access/$HOST-$YEAR-$MONTH-$DAY.log” create_dirs(yes)); };
+
 
 # This files are the log come from the mail subsystem.
 #
@@ -133,6 +140,9 @@ filter f_cother { level(debug, info, notice, warn) or facility(daemon, mail); };
 filter f_ppp { facility(local2) and not filter(f_debug); };
 filter f_console { level(warn .. emerg); };
 
+filter f_apache_error { match(“error” value(“MESSAGE”)); };
+filter f_apache_error { not match(“error” value(“MESSAGE”)); };
+
 ########################
 # Log paths
 ########################
@@ -166,6 +176,11 @@ log { source(s_src); filter(f_console); destination(d_console_all);
 				    destination(d_xconsole); };
 log { source(s_src); filter(f_crit); destination(d_console); };
 
+log { source(s_network); filter(f_apache_error);
+destination(d_apache_error); };
+log { source(s_network); filter(f_apache_access);
+destination(d_apache_access); };
+
 # All messages send to a remote site
 #
 #log { source(s_src); destination(d_net); };
@@ -174,3 +189,4 @@ log { source(s_src); filter(f_crit); destination(d_console); };
 # Include all config files in /etc/syslog-ng/conf.d/
 ###
 @include "/etc/syslog-ng/conf.d/*.conf"
+'>> /etc/syslog-ng/syslog-ng.conf
