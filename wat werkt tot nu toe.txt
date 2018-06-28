@@ -3,8 +3,8 @@ minion_saltstack
 
 executen van dingen via saltstack werkt niet.
 
-mastervm_nagios ???
-slavevm_nagios ???
+mastervm_nagios VIA SALTSTACK +/- 15 minuten
+slavevm_nagios ??? VIA SALTSTACK +/- 8 minuten
 
 mastervm_syslog ???
 slavevm_syslog ???

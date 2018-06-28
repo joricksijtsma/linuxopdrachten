@@ -33,5 +33,6 @@ sudo salt 'minion' state.apply -t 60 slavevm_nagios
 sudo salt 'minion' state.apply slavevm_syslog_install #moet nog gemaakt worden
 
 Stap 6: add minion to mastervm_nagios website
-
-slavevm_nagios_minion_add.sh
+cd /srv/salt
+sudo chmod 777 slavevm_nagios_minion_add.sh
+sudo ./slavevm_nagios_minion_add.sh
