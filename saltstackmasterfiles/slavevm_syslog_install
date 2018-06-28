@@ -10,8 +10,6 @@ sudo rm /etc/syslog-ng/syslog-ng.conf
 #make new empty file
 sudo touch /etc/syslog-ng/syslog-ng.conf
 
-
-
 echo "
 @version: 3.5
 @include 'scl.conf'
@@ -29,7 +27,7 @@ source s_src {
 ###################
 # Destinations
 ###################
-destination d_network { tcp(10.0.0.23 port(601)); };
+destination d_network { tcp("MASTER_IP" port(601)); };
 
 ##################
 # Log paths
