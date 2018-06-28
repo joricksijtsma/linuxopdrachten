@@ -10,12 +10,10 @@ sudo git clone https://github.com/joricksijtsma/linuxopdrachten && cd linuxopdra
 cd / && sudo rm -rf linuxopdrachten
 
 Stap 1: op masterVM
-cd ..
-sudo ./mastervm_saltstack
+cd .. && sudo ./mastervm_saltstack
 
 Stap 2: op minionVM
-cd ..
-sudo ./minion_saltstack
+cd .. && sudo ./minion_saltstack
 
 Stap 3: Op masterVM, accept all keys
 
