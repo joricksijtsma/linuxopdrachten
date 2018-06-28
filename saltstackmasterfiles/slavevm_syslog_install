@@ -11,8 +11,8 @@ sudo touch /etc/syslog-ng/syslog-ng.conf
 
 echo "
 @version: 3.5
-@include 'scl.conf'
-@include '`scl-root`/system/tty10.conf'
+@include "scl.conf"
+@include "`scl-root`/system/tty10.conf"
 
 
 ###################
