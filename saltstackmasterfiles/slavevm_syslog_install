@@ -13,9 +13,9 @@ sudo rm /etc/syslog-ng/syslog-ng.conf
 sudo touch /etc/syslog-ng/syslog-ng.conf
 
 echo -e "Please insert the monitoring host ip"
-read -p 'Saltstack Master name: ' hostip
+read -p 'Saltstack Master IP: ' hostip
 
-echo '@version: 3.5
+echo "@version: 3.5
 @include "scl.conf"
 @include "`scl-root`/system/tty10.conf"
 
@@ -31,7 +31,7 @@ source s_src {
 ###################
 # Destinations
 ###################
-destination d_network { tcp("$hostip" port(601)); };
+destination d_network { tcp(\"$hostip\" port(601)); };
 
 ##################
 # Log paths
@@ -39,6 +39,6 @@ destination d_network { tcp("$hostip" port(601)); };
 
 log { source(s_src); destination(d_network); };
 
-' >> /etc/syslog-ng/syslog-ng.conf
+" >> /etc/syslog-ng/syslog-ng.conf
 
 sudo systemctl restart syslog-ng
