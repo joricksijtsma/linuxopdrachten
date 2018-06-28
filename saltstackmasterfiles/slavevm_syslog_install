@@ -2,38 +2,4 @@
 
 #installation file for slavevm_syslog_install
 
-sudo apt-get install syslog-ng -y
-
-#make empty file by deleting it
-sudo cp /etc/syslog-ng/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf.BAK
-sudo rm /etc/syslog-ng/syslog-ng.conf
-sudo touch /etc/syslog-ng/syslog-ng.conf
-
-echo "
-@version: 3.5
-@include "scl.conf"
-@include "`scl-root`/system/tty10.conf"
-
-
-###################
-# Sources
-###################
-source s_src {
-	system();
-	internal();
-};
-
-###################
-# Destinations
-###################
-destination d_network { tcp("MASTER_IP" port(601)); };
-
-##################
-# Log paths
-##################
-
-log { source(s_src); destination(d_network); };
-
-">> /etc/syslog-ng/syslog-ng.conf
-
-sudo systemctl restart syslog-ng
+#look at the .sls file!
