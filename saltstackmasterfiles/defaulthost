@@ -21,8 +21,8 @@ define service {
 define service {
  use generic-service
  host_name your_monitored_server_host_name
- service_description /dev/vda1 free space
- check_command check_nrpe!check_vda1
+ service_description /dev/sda1 free space
+ check_command check_nrpe!check_sda1
 }
 
 
