@@ -5,7 +5,7 @@
 # slavevm_nagios    regel 39 & 43
 # slavevm_nagios_minion_add )
 
-sudo git clone https://github.com/joricksijtsma/linuxopdrachten && cd linuxopdrachten && sudo chmod 777 mastervm_saltstack minion_saltstack && cd saltstackmasterfiles && sudo chmod 777 mastervm_nagios slavevm_nagios
+sudo git clone https://github.com/joricksijtsma/linuxopdrachten && cd linuxopdrachten && sudo chmod 777 mastervm_saltstack minion_saltstack && cd saltstackmasterfiles && sudo chmod 777 mastervm_nagios slavevm_nagios slavevm_nagios_minion_add
 
 sudo rm -rf linuxopdrachten
 
