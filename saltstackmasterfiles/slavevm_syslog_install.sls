@@ -1,7 +1,7 @@
 run slavevm_syslog_install:
   cmd:
     - run
-    - name: /linuxopdrachten/saltstackmasterfiles/slavevm_syslog_install
+    - name: /srv/salt/slavevm_syslog_install
 
   master_ip:
     file.replace:
