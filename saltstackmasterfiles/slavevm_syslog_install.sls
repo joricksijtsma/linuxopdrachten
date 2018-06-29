@@ -15,7 +15,7 @@ replace master_ip:
  file.replace:
  - name: /etc/syslog-ng/syslog-ng.conf
  - pattern: MASTER_IP
- - repl: 10.0.0.27
+ - repl: 10.0.0.29
 
 restart syslog-ng:
  cmd:
